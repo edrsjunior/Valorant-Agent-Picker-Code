@@ -1,21 +1,14 @@
 import pyautogui
 import keyboard
 
+pyautogui.PAUSE = 0.01 #Set low delay between clicks
+screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 
-screenWidth, screenHeight = pyautogui.size()
-
-
-print(f'Your screem size is {screenWidth}x{screenHeight}')
-if screenWidth > 1920:
-    screenWidth = 1920
-    print("Screen width setted to Full HD")
-if screenHeight > 1080:
-    screenHeight = 1080
-    print("Screen heith setted to Full HD")
+print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
 print("Put your mouse on character box and press S for save")
-keyboard.wait('ctrl')
-characterPosX, characterPosY = pyautogui.position()
+keyboard.wait('ctrl') #wait the Ctrl key be pressed
+characterPosX, characterPosY = pyautogui.position() #get current mouse position
 print(f'Position of character is {characterPosX}x{characterPosY}')
 
 print("Put your mouse on confirm button and press S for save")
@@ -26,12 +19,11 @@ print(f'Position of confirm button is {characterPosX}x{characterPosY}')
 keyboard.wait('alt+s')
 print("Clicking! Press <p> to pause or <Esc> to close")
 while True:
-    pyautogui.click(characterPosX,characterPosY,2)
+    pyautogui.click(characterPosX,characterPosY) #send click into specified position
     pyautogui.click()
     #print("click")
-    pyautogui.click(comfirmPosX,comfirmPosY,2)
+    pyautogui.click(comfirmPosX,comfirmPosY)
     #print("click")
-    
     
     if  keyboard.is_pressed('p'):
         print("Paused! Press <alt+s> to continue  or esc to close")
