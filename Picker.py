@@ -22,7 +22,9 @@ print(f'Position of character is {characterPosX}x{characterPosY}')
 keyboard.wait('alt+s')
 while True:
     pyautogui.click(characterPosX,characterPosY,2,100)
+    print("click")
     pyautogui.click(characterPosX,characterPosY,2,100)
+    print("click")
     keyboard.wait('p')
     keyboard.wait('alt+s')
 
