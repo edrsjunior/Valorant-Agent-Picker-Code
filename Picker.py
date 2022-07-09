@@ -14,8 +14,9 @@ if screenHeight > 1080:
     screenHeight = 1080
     print("Screen heith setted to Full HD")
 
-characterPosX = input("Character column?")
-characterPosY = input("Character line?")
+print("Put your mouse on character box and press S for save")
+
+characterPosX, characterPosY = pyautogui.position()
 
 keyboard.wait('alt+s')
 while True:
