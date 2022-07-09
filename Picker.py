@@ -15,6 +15,7 @@ if screenHeight > 1080:
     print("Screen heith setted to Full HD")
 
 print("Put your mouse on character box and press S for save")
+keyboard.wait('s')
 characterPosX, characterPosY = pyautogui.position()
 print(f'Position of character is {characterPosX}x{characterPosY}')
 
