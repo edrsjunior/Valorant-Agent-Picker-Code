@@ -19,13 +19,21 @@ keyboard.wait('s')
 characterPosX, characterPosY = pyautogui.position()
 print(f'Position of character is {characterPosX}x{characterPosY}')
 
+print("Put your mouse on comfirm button and press S for save")
+keyboard.wait('s')
+comfirmPosX, comfirmPosY = pyautogui.position()
+print(f'Position of character is {characterPosX}x{characterPosY}')
+
 keyboard.wait('alt+s')
+print("pass")
 while True:
-    pyautogui.click(characterPosX,characterPosY,2,100)
+    pyautogui.click(characterPosX,characterPosY,2,0.1)
+    pyautogui.click()
     print("click")
-    pyautogui.click(characterPosX,characterPosY,2,100)
+    pyautogui.click(comfirmPosX,comfirmPosY,2,0.1)
     print("click")
-    keyboard.wait('p')
-    keyboard.wait('alt+s')
+    event = keyboard.read_event()
+    if event.event_type == keyboard.KEY_DOWN and event.name == 's':
+        keyboard.wait('alt+s')
 
 
