@@ -14,12 +14,12 @@ if screenHeight > 1080:
     print("Screen heith setted to Full HD")
 
 print("Put your mouse on character box and press S for save")
-keyboard.wait('s')
+keyboard.wait('ctrl')
 characterPosX, characterPosY = pyautogui.position()
 print(f'Position of character is {characterPosX}x{characterPosY}')
 
 print("Put your mouse on confirm button and press S for save")
-keyboard.wait('s')
+keyboard.wait('ctrl')
 comfirmPosX, comfirmPosY = pyautogui.position()
 print(f'Position of confirm button is {characterPosX}x{characterPosY}')
 
@@ -31,12 +31,16 @@ while True:
     #print("click")
     pyautogui.click(comfirmPosX,comfirmPosY,2)
     #print("click")
+    
+    
     if  keyboard.is_pressed('p'):
-        print("Paused! Press <alt+s> to continue")
-        if keyboard.is_pressed('alt+s'):
-            break
-        if keyboard.is_pressed('esc'):
-            exit()
+        print("Paused! Press <alt+s> to continue  or esc to close")
+        while True:
+            #event = keyboard.read_event()
+            if  keyboard.is_pressed('alt+s'):
+                break
+            if  keyboard.is_pressed('esc'):
+                exit()
     if  keyboard.is_pressed('esc'):
         exit()
 
