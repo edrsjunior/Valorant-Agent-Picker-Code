@@ -26,14 +26,14 @@ print(f'Position of character is {characterPosX}x{characterPosY}')
 keyboard.wait('alt+s')
 print("pass")
 while True:
-    pyautogui.click(characterPosX,characterPosY,2,0.1)
+    pyautogui.click(characterPosX,characterPosY,2)
     pyautogui.click()
     print("click")
-    pyautogui.click(comfirmPosX,comfirmPosY,2,0.1)
+    pyautogui.click(comfirmPosX,comfirmPosY,2)
     print("click")
     if  keyboard.is_pressed('p'):
         keyboard.wait('alt+s')
     if  keyboard.is_pressed('esc'):
-        exit
+        exit()
 
 
