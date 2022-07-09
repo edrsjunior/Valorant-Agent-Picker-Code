@@ -18,10 +18,10 @@ keyboard.wait('s')
 characterPosX, characterPosY = pyautogui.position()
 print(f'Position of character is {characterPosX}x{characterPosY}')
 
-print("Put your mouse on comfirm button and press S for save")
+print("Put your mouse on confirm button and press S for save")
 keyboard.wait('s')
 comfirmPosX, comfirmPosY = pyautogui.position()
-print(f'Position of character is {characterPosX}x{characterPosY}')
+print(f'Position of confirm button is {characterPosX}x{characterPosY}')
 
 keyboard.wait('alt+s')
 print("Clicking! Press <p> to pause or <Esc> to close")
