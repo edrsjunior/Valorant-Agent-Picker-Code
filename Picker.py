@@ -28,9 +28,9 @@ print("Clicking! Press <p> to pause or <Esc> to close")
 while True:
     pyautogui.click(characterPosX,characterPosY,2)
     pyautogui.click()
-    print("click")
+    #print("click")
     pyautogui.click(comfirmPosX,comfirmPosY,2)
-    print("click")
+    #print("click")
     if  keyboard.is_pressed('p'):
         print("Paused! Press <alt+s> to continue")
         keyboard.wait('alt+s')
