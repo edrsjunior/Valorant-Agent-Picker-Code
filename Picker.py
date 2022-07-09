@@ -1,4 +1,3 @@
-from ast import If
 import pyautogui
 import keyboard
 
@@ -32,8 +31,9 @@ while True:
     print("click")
     pyautogui.click(comfirmPosX,comfirmPosY,2,0.1)
     print("click")
-    event = keyboard.read_event()
-    if event.event_type == keyboard.KEY_DOWN and event.name == 's':
+    if  keyboard.is_pressed('p'):
         keyboard.wait('alt+s')
+    if  keyboard.is_pressed('esc'):
+        exit
 
 
