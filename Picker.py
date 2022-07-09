@@ -33,7 +33,10 @@ while True:
     #print("click")
     if  keyboard.is_pressed('p'):
         print("Paused! Press <alt+s> to continue")
-        keyboard.wait('alt+s')
+        if keyboard.is_pressed('alt+s'):
+            break
+        if keyboard.is_pressed('esc'):
+            exit()
     if  keyboard.is_pressed('esc'):
         exit()
 
