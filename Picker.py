@@ -15,7 +15,7 @@ def  clickChampion():
     global keepRunning 
     while True:
         pyautogui.click(characterPosX,characterPosY) #send click into specified position
-        pyautogui.click(comfirmPosX,comfirmPosY)
+        pyautogui.click(confirmPosX,confirmPosY)
         if  keepRunning:
             break
        
