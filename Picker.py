@@ -33,10 +33,12 @@ comfirmPosX, comfirmPosY = pyautogui.position()
 print(f'Position of confirm button is {characterPosX}x{characterPosY}')
 
 while True:
+    print("Wainting... Press <alt+s> to start")
     keyboard.wait('alt+s')
     keepRunning = False
     tClick = Thread(target = clickChampion)
     tClick.start()
+    print("Running... Press <q> to stop")
     keyboard.wait('q')
     keepRunning = True
     tClick.join()
