@@ -30,8 +30,8 @@ print(f'Position of character is {characterPosX}x{characterPosY}')
 
 print("Put your mouse on confirm button and press Ctrl for save")
 keyboard.wait('ctrl')
-comfirmPosX, comfirmPosY = pyautogui.position()
-print(f'Position of confirm button is {characterPosX}x{characterPosY}')
+confirmPosX, confirmPosY = pyautogui.position()
+print(f'Position of confirm button is {confirmPosX}x{confirmPosY}')
 
 while True:
     print("Waiting... Press <alt+s> to start")
