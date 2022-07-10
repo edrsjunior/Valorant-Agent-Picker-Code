@@ -1,3 +1,8 @@
+#                               References: 
+# https://www.pythontutorial.net/advanced-python/python-threading/
+# https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/
+
+
 from threading import Thread
 import pyautogui
 import keyboard
@@ -13,9 +18,6 @@ def  clickChampion():
         if  keepRunning:
             break
        
-
-
-
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
