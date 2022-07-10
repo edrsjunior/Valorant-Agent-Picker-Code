@@ -1,6 +1,8 @@
 #                               References: 
 # https://www.pythontutorial.net/advanced-python/python-threading/
+# https://www.w3schools.com/python/python_variables_global.asp
 # https://www.geeksforgeeks.org/python-different-ways-to-kill-a-thread/
+
 
 
 from threading import Thread
