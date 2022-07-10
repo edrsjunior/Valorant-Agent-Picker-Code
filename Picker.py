@@ -10,11 +10,10 @@ import keyboard
 pyautogui.PAUSE = 0.01 #Set low delay between clicks
 
 def  clickChampion():
-    
+    global keepRunning 
     while True:
         pyautogui.click(characterPosX,characterPosY) #send click into specified position
         pyautogui.click(comfirmPosX,comfirmPosY)
-        global keepRunning 
         if  keepRunning:
             break
        
