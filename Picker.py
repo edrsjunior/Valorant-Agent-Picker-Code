@@ -5,45 +5,60 @@
 
 
 
-from threading import Thread
+from ast import While
 import pyautogui
 import keyboard
-
-pyautogui.PAUSE = 0.01 #Set low delay between clicks
-
-def  clickChampion():
-    global keepRunning 
-    while True:
-        pyautogui.click(characterPosX,characterPosY) #send click into specified position
-        pyautogui.click(confirmPosX,confirmPosY)
-        if  keepRunning:
-            break
-       
+import funcs
+import json
+    
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
-
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
-print("Put your mouse on character box and press Ctrl for save")
-keyboard.wait('ctrl') #wait the Ctrl key be pressed
-characterPosX, characterPosY = pyautogui.position() #get current mouse position
-print(f'Position of character is {characterPosX}x{characterPosY}')
+op = -1
+while op != 0:
+    #-------------------------MENU-----------------------------
+    print("MENU \n")
+    print("1 - Para definir a posição do personagem")
+    print("2 - Para escolher um persongem pré-definido")
+    print("0 - Exit")
+    op = int(input("Insira a opção desejada!  "))
+    #----------------------------------------------------------
 
-print("Put your mouse on confirm button and press Ctrl for save")
-keyboard.wait('ctrl')
-confirmPosX, confirmPosY = pyautogui.position()
-print(f'Position of confirm button is {confirmPosX}x{confirmPosY}')
+    #leitura de arquivo
+    print("\nReading Agent Position File")
+    data = None
+    with open('agents.json','r',encoding="utf-8") as f:
+        data = json.load(f)
+    if op == 1:
+        print("Put your mouse on character box and press Ctrl for save")
+        keyboard.wait('ctrl') #wait the Ctrl key be pressed
+        characterPosX, characterPosY = pyautogui.position() #get current mouse position
+        agentName = input("Insert Agent Name: ")
+        op = 'y'
+        if agentName in data:
+            op = str(input("The agent is alredy saved, are you sure that want replace the position? Yes or No! "))
 
-while True:
-    print("Waiting... Press <alt+s> to start")
-    keyboard.wait('alt+s')
-    keepRunning = False
-    tClick = Thread(target = clickChampion)
-    tClick.start()
-    print("Running... Press <q> to stop")
-    keyboard.wait('q')
-    keepRunning = True
-    tClick.join()
+        if op.lower() in ['y','yes']:
+            print('Recording Position...')
+            data[agentName] = {
+                "x" : characterPosX,
+                "y" : characterPosY
+            }
+            
+            with open('agents.json','w',encoding="utf-8") as f:
+                f.write(json.dumps(data))
+            print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
+            
+    elif op == 2:
+        agentName = input("Insert Agent Name: ")
+        characterPosX = data[agentName]['x']
+        characterPosY = data[agentName]['y']
+        print(f'X={characterPosX} e Y:{characterPosY}')
+        #funcs.startClicks(characterPosX,characterPosY)
+            #---------------------------
+print("Closing....")
     
+        
     
 
 
