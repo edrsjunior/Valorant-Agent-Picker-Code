@@ -54,7 +54,10 @@ while op != 0:
         characterPosX = data[agentName]['x']
         characterPosY = data[agentName]['y']
         print(f'X={characterPosX} e Y:{characterPosY}')
-        #funcs.startClicks(characterPosX,characterPosY)
+        print("COMMANDS")
+        print("Press Alt+S to Start")
+        print("Press Q to Stop")
+        funcs.startClicks(characterPosX,characterPosY)
             #---------------------------
 print("Closing....")
     
