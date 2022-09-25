@@ -10,7 +10,9 @@ import pyautogui
 import keyboard
 import funcs
 import json
-    
+from threading import Thread
+
+global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
@@ -57,11 +59,8 @@ while op != 0:
         # print("COMMANDS")
         # print("Press Alt+S to Start")
         # print("Press Q to Stop")
-        stopClick = False
-        funcs.startClicks(characterPosX,characterPosY)
-        keyboard.wait('q')
-        stopClick = True
-            #---------------------------
+        keyboard.wait("Alt+s")
+        funcs.clickChampion(characterPosX,characterPosY)
 print("Closing....")
     
         
