@@ -11,6 +11,9 @@ def  clickChampion(characterPosX,characterPosY,btnX,btnY):
         pyautogui.click(btnX,btnY)
 
         if keyboard.is_pressed("q"):
-            print("Stop Click")
-            break   
+            print("Press q again to exit or Alt+S to resume")
+            if keyboard.is_pressed("q"):
+                break
+            if keyboard.is_pressed("Alt+s"):
+                pass
     

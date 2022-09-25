@@ -5,7 +5,7 @@
 
 
 
-from ast import While
+from ast import Try, While
 import pyautogui
 import keyboard
 import funcs
@@ -63,14 +63,18 @@ while op != 0:
             
     elif op == 3:
         agentName = input("Insert Agent Name: ")
-        characterPosX = data[agentName]['x']
-        characterPosY = data[agentName]['y']
-        print(f'X={characterPosX} e Y:{characterPosY}')
-        # print("COMMANDS")
-        # print("Press Alt+S to Start")
-        # print("Press Q to Stop")
-        keyboard.wait("Alt+s")
-        funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
+        try:
+            characterPosX = data[agentName]['x']
+            characterPosY = data[agentName]['y']
+            print(f'X={characterPosX} e Y:{characterPosY}')
+            # print("COMMANDS")
+            # print("Press Alt+S to Start")
+            # print("Press Q to Stop")
+            keyboard.wait("Alt+s")
+            funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
+        except KeyError:
+            print("\n\n!!!!!!Agente não cadastrado, tente novamente!!!!!!!!\n\n\n")
+        
 print("Closing....")
     
         
