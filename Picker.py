@@ -57,7 +57,10 @@ while op != 0:
         # print("COMMANDS")
         # print("Press Alt+S to Start")
         # print("Press Q to Stop")
+        stopClick = False
         funcs.startClicks(characterPosX,characterPosY)
+        keyboard.wait('q')
+        stopClick = True
             #---------------------------
 print("Closing....")
     
