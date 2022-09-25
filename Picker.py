@@ -66,10 +66,12 @@ while op != 0:
         try:
             characterPosX = data[agentName]['x']
             characterPosY = data[agentName]['y']
+            confirmBtnX = data['ConfirmBtn']['x']
+            confirmBtnY = data['ConfirmBtn']['y']
             print(f'X={characterPosX} e Y:{characterPosY}')
-            # print("COMMANDS")
-            # print("Press Alt+S to Start")
-            # print("Press Q to Stop")
+            print("COMMANDS")
+            print("Press Alt+S to Start")
+            print("Press Q to Stop")
             keyboard.wait("Alt+s")
             funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
         except KeyError:
