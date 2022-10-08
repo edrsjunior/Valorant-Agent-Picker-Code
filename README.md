@@ -9,3 +9,14 @@ O projeto foi desenvolvido com objetivo de testar os conhecimentos em Python em 
 ## 📚 Libraries
 - Biblioteca keyboard
 - Biblioteca PyAutoGUI
+
+# How to use?
+
+### 1. First you need to download and install Python interpreter:
+
+> 🔗[Download Python Here](https://www.python.org)
+
+### 2. After install python:
+> 🏎️ Just run *Picker.py* and follow cmd instructions
+
+
