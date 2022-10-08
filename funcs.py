@@ -1,9 +1,6 @@
 from concurrent.futures import thread
-from multiprocessing.connection import wait
-import time
 import pyautogui
 import keyboard
-from threading import Thread
 
 pyautogui.PAUSE = 0.01 #Set low delay between click
 
