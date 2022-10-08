@@ -1,4 +1,6 @@
 from concurrent.futures import thread
+from multiprocessing.connection import wait
+import time
 import pyautogui
 import keyboard
 from threading import Thread
@@ -9,11 +11,5 @@ def  clickChampion(characterPosX,characterPosY,btnX,btnY):
     while True:
         pyautogui.click(characterPosX,characterPosY) #send click into specified position
         pyautogui.click(btnX,btnY)
-
         if keyboard.is_pressed("q"):
-            print("Press q again to exit or Alt+S to resume")
-            if keyboard.is_pressed("q"):
-                break
-            if keyboard.is_pressed("Alt+s"):
-                pass
-    
+            break

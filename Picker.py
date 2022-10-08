@@ -66,8 +66,8 @@ while op != 0:
         try:
             characterPosX = data[agentName]['x']
             characterPosY = data[agentName]['y']
-            confirmBtnX = data['ConfirmBtn']['x']
-            confirmBtnY = data['ConfirmBtn']['y']
+            confirmBtnX = data['confirmBtn']['x']
+            confirmBtnY = data['confirmBtn']['y']
             print(f'X={characterPosX} e Y:{characterPosY}')
             print("COMMANDS")
             print("Press Alt+S to Start")
@@ -75,7 +75,7 @@ while op != 0:
             keyboard.wait("Alt+s")
             funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
         except KeyError:
-            print("\n\n!!!!!!Agente não cadastrado, tente novamente!!!!!!!!\n\n\n")
+            print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
         
 print("Closing....")
     
