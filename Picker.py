@@ -10,7 +10,6 @@ import pyautogui
 import keyboard
 import funcs
 import json
-from threading import Thread
 
 global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
