@@ -11,7 +11,10 @@ def  clickChampion(characterPosX,characterPosY,btnX,btnY):
         if keyboard.is_pressed("q"):
             print("Stoping...")
             print("Press y to continue or 0 to exit")
-            op = input("Insira a opção desejada!")	
-            if op == "0":
-                break   
+            if(keyboard.is_pressed("y")):
+                print("Continuing...")
+                continue
+            if(keyboard.is_pressed("0")):
+                print("Exiting...")
+                break
             
