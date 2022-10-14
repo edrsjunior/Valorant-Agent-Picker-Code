@@ -18,7 +18,7 @@ print(f'Your screem size is {screenWidth}x{screenHeight}')
 op = -1
 while op != 0:
     #-------------------------MENU-----------------------------
-    print("MENU \n")
+    print("\n\nMENU \n")
     print("1 - Para definir a posição do botao confirmar (Necessário apenas a primeira vez)")
     print("2 - Para definir a posição do personagem (Necessário apenas a primeira vez)")
     print("3 - Para escolher um persongem pré-definido")
@@ -68,9 +68,8 @@ while op != 0:
             confirmBtnX = data['confirmBtn']['x']
             confirmBtnY = data['confirmBtn']['y']
             print(f'X={characterPosX} e Y:{characterPosY}')
-            print("\n\nCOMMANDS")
-            print("Press Alt+S to Start")
-            print("Press Q to Stop \n\n")
+            print("\nCOMMANDS")
+            print("Press Alt+S to start or q to stop")
             keyboard.wait("Alt+s")
             funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
         except KeyError:

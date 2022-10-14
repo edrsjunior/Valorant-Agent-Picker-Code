@@ -12,7 +12,7 @@ def  clickChampion(characterPosX,characterPosY,btnX,btnY):
         pyautogui.click(characterPosX,characterPosY) #send click into specified position
         pyautogui.click(btnX,btnY)
         if keyboard.is_pressed("q"):
-            print("\n\nStoping...\n")
+            print("\nStoping...")
             print("Press y to continue or 0 to exit\n")
             # wait keyboard press y or 0
             while True:
