@@ -73,7 +73,7 @@ while op != 0:
             keyboard.wait("Alt+s")
             funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
         except KeyError:
-            print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
+            print("\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n")
         
 print("Closing....")
     
