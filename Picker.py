@@ -15,22 +15,26 @@ global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
-while keyboard.is_pressed("0"):
-    #-------------------------MENU-----------------------------
-    print("MENU \n")
-    print("1 - Para definir a posição do botao confirmar (Necessário apenas a primeira vez)")
-    print("2 - Para definir a posição do personagem (Necessário apenas a primeira vez)")
-    print("3 - Para escolher um persongem pré-definido")
-    print("0 - Exit")
-    op = int(input("Insira a opção desejada!  "))
-    #----------------------------------------------------------
 
-    #leitura de arquivo
-    print("\nReading Agent Position File")
-    data = None
-    with open('agents.json','r',encoding="utf-8") as f:
-        data = json.load(f)
+#-------------------------MENU-----------------------------
+print("MENU \n")
+print("1 - Para definir a posição do botao confirmar (Necessário apenas a primeira vez)")
+print("2 - Para definir a posição do personagem (Necessário apenas a primeira vez)")
+print("3 - Para escolher um persongem pré-definido")
+print("0 - Exit")
+#----------------------------------------------------------
 
+#leitura de arquivo
+print("\nReading Agent Position File")
+data = None
+with open('agents.json','r',encoding="utf-8") as f:
+    data = json.load(f)
+
+print("File Read Sucefully \n")
+
+
+print("Choose an option: ")
+while True:
     if keyboard.is_pressed("1"):
         print("Put your mouse on confirm button and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
@@ -60,7 +64,12 @@ while keyboard.is_pressed("0"):
             print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
             
     elif keyboard.is_pressed("3"):
-        agentName = input("Insert Agent Name: ")
+        print("Choose an agent: ")
+        # for a loop in agents keys
+        cont = 0
+        for agent in data:
+            print(f'{cont} - {agent}')
+            cont += 13
         try:
             characterPosX = data[agentName]['x']
             characterPosY = data[agentName]['y']
@@ -74,7 +83,11 @@ while keyboard.is_pressed("0"):
             funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
         except KeyError:
             print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
-        
+    
+    elif keyboard.is_pressed("0"):
+        print("Exiting...")
+        break
+
 print("Closing....")
     
         
