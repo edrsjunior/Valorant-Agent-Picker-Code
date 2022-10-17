@@ -39,6 +39,7 @@ while True:
                 "x" : confirmBtnX,
                 "y" : confirmBtnY
             }
+        funcs.showMenu()
     if keyboard.is_pressed("2"):
         print("Put your mouse on character box and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
@@ -58,7 +59,7 @@ while True:
             with open('agents.json','w',encoding="utf-8") as f:
                 f.write(json.dumps(data))
             print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
-            
+            funcs.showMenu()
     elif keyboard.is_pressed("3"):
         # for a loop in agents keys
         cont = 0
