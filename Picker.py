@@ -114,6 +114,7 @@ while True:
             print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
     elif keyboard.is_pressed("0"):
         print("Exiting...")
+        sleep(5)
         break
         
 print("Closing....")
