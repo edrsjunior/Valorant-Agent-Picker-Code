@@ -11,6 +11,7 @@ O projeto foi desenvolvido com objetivo de testar os conhecimentos em Python em 
 ## 📚 Libraries
 - Biblioteca keyboard
 - Biblioteca PyAutoGUI
+- Biblioteca PrettyTable
 
 # How to use?
 
