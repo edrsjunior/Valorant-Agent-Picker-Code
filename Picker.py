@@ -17,14 +17,7 @@ global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
-
-#-------------------------MENU-----------------------------
-print("MENU \n")
-print("1 - Para definir a posição do botao confirmar (Necessário apenas a primeira vez)")
-print("2 - Para definir a posição do personagem (Necessário apenas a primeira vez)")
-print("3 - Para escolher um persongem pré-definido")
-print("0 - Exit")
-#----------------------------------------------------------
+funcs.showMenu()
 
 #leitura de arquivo
 print("\nReading Agent Position File")
@@ -37,6 +30,7 @@ print("File Read Sucefully \n")
 
 print("Choose an option: ")
 while True:
+    
     if keyboard.is_pressed("1"):
         print("Put your mouse on confirm button and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
@@ -70,47 +64,17 @@ while True:
         cont = 0
         tableOfAgents = PrettyTable(['Indice','Nome'])
         for agent in data:
-            tableOfAgents.add_row([cont,agent])
-            cont += 1
+            if agent != "confirmBtn":
+                tableOfAgents.add_row([cont,agent])
+                cont += 1
 
         print(tableOfAgents)
         # wait for the user press a number and save the value in a variable
-        sleep(0.5)
-        while True:
-            if keyboard.is_pressed("0"):
-                agentChoosed = 0
-                break
-            elif keyboard.is_pressed("1"):
-                agentChoosed = 1
-                break
-            elif keyboard.is_pressed("2"):
-                agentChoosed = 2
-                break
-            elif keyboard.is_pressed("3"):
-                agentChoosed = 3
-                break
-            elif keyboard.is_pressed("4"):
-                agentChoosed = 4
-                break
-            elif keyboard.is_pressed("5"):
-                agentChoosed = 5
-                break
-            elif keyboard.is_pressed("6"):
-                agentChoosed = 6
-                break
-            elif keyboard.is_pressed("7"):
-                agentChoosed = 7
-                break
-            elif keyboard.is_pressed("8"):
-                agentChoosed = 8
-                break
-            elif keyboard.is_pressed("9"):
-                agentChoosed = 9
-                break
-    
-        #get the agent name by the number choosed
+        print("Choose an agent: ")
+        agentChoosed = int(input())
+        # get the agent name from the index
         agentName = list(data.keys())[agentChoosed]
-        print(f'You choosed {agentName}')
+        print(f'You choosed: {agentName}')
         try:
             #get the agent position
             characterPosX = data[agentName]['x']
@@ -118,16 +82,38 @@ while True:
             confirmBtnX = data['confirmBtn']['x']
             confirmBtnY = data['confirmBtn']['y']
             print(f'X={characterPosX} e Y:{characterPosY}')
+            print('-'*30)
             print("COMMANDS")
             print("Press Alt+S to Start")
             print("Press Q to Stop")
             keyboard.wait("Alt+s")
-            funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
+            print('-'*30)
+
+            out = False
+            while not out:
+                funcs.clickChampion(characterPosX,characterPosY,confirmBtnX,confirmBtnY)
+                if keyboard.is_pressed("q"):
+                    print("\nStoping...")
+                    print("Press Alt+s to continue or Alt+q to exit to menu \n")
+                    # wait keyboard press Alt+s or 0
+                    sleep(0.5)
+                    while True:
+                        if(keyboard.is_pressed("Alt+s")):
+                            print("Continuing...")
+                            break
+                        if(keyboard.is_pressed("Alt+q")):
+                            print("Exiting...")
+                            funcs.showMenu()
+                            out = True
+                            break
+
+
         except KeyError:
             print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
     
     elif keyboard.is_pressed("0"):
         print("Exiting...")
+        funcs.showMenu()
         break
 
 print("Closing....")
