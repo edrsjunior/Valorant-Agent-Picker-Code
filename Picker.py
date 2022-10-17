@@ -40,6 +40,7 @@ while True:
                 "y" : confirmBtnY
             }
         funcs.showMenu()
+        print("Choose an option: ")
     if keyboard.is_pressed("2"):
         print("Put your mouse on character box and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
@@ -60,6 +61,7 @@ while True:
                 f.write(json.dumps(data))
             print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
             funcs.showMenu()
+            print("Choose an option: ")
     elif keyboard.is_pressed("3"):
         # for a loop in agents keys
         cont = 0
@@ -105,12 +107,14 @@ while True:
                         if(keyboard.is_pressed("Alt+q")):
                             print("Exiting...")
                             funcs.showMenu()
+                            print("Choose an option: ")
                             out = True
                             break
-
-
         except KeyError:
             print("\n\n!!!!!!Agente ou botão não cadastrado, tente novamente!!!!!!!!\n\n\n")
+    elif keyboard.is_pressed("0"):
+        print("Exiting...")
+        break
         
 print("Closing....")
     
