@@ -75,6 +75,7 @@ while True:
         # wait for the user press a number and save the value in a variable
         print("Choose an agent: ")
         agentChoosed = int(input())
+        agentChoosed += 1
         # get the agent name from the index
         agentName = list(data.keys())[agentChoosed]
         print(f'You choosed: {agentName}')
