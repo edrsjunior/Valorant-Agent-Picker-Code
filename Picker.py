@@ -6,10 +6,12 @@
 
 
 from ast import Try, While
+from time import sleep
 import pyautogui
 import keyboard
 import funcs
 import json
+from prettytable import PrettyTable
 
 global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
@@ -64,13 +66,53 @@ while True:
             print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
             
     elif keyboard.is_pressed("3"):
-        print("Choose an agent: ")
         # for a loop in agents keys
         cont = 0
+        tableOfAgents = PrettyTable(['Indice','Nome'])
         for agent in data:
-            print(f'{cont} - {agent}')
-            cont += 13
+            tableOfAgents.add_row([cont,agent])
+            cont += 1
+
+        print(tableOfAgents)
+        # wait for the user press a number and save the value in a variable
+        sleep(0.5)
+        while True:
+            if keyboard.is_pressed("0"):
+                agentChoosed = 0
+                break
+            elif keyboard.is_pressed("1"):
+                agentChoosed = 1
+                break
+            elif keyboard.is_pressed("2"):
+                agentChoosed = 2
+                break
+            elif keyboard.is_pressed("3"):
+                agentChoosed = 3
+                break
+            elif keyboard.is_pressed("4"):
+                agentChoosed = 4
+                break
+            elif keyboard.is_pressed("5"):
+                agentChoosed = 5
+                break
+            elif keyboard.is_pressed("6"):
+                agentChoosed = 6
+                break
+            elif keyboard.is_pressed("7"):
+                agentChoosed = 7
+                break
+            elif keyboard.is_pressed("8"):
+                agentChoosed = 8
+                break
+            elif keyboard.is_pressed("9"):
+                agentChoosed = 9
+                break
+    
+        #get the agent name by the number choosed
+        agentName = list(data.keys())[agentChoosed]
+        print(f'You choosed {agentName}')
         try:
+            #get the agent position
             characterPosX = data[agentName]['x']
             characterPosY = data[agentName]['y']
             confirmBtnX = data['confirmBtn']['x']
