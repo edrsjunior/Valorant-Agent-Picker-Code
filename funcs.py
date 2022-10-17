@@ -20,7 +20,7 @@ def  clickChampion(characterPosX,characterPosY,btnX,btnY):
                 if(keyboard.is_pressed("Alt+s")):
                     print("Continuing...")
                     break
-                if(keyboard.is_pressed("q")):
+                if(keyboard.is_pressed("Alt+q")):
                     print("Exiting...")
                     out = True
                     break
