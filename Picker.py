@@ -15,8 +15,7 @@ global stopClick
 screenWidth, screenHeight = pyautogui.size() #get main screen just for fun 
 print(f'Your screem size is {screenWidth}x{screenHeight}') 
 
-op = -1
-while op != 0:
+while keyboard.is_pressed("0"):
     #-------------------------MENU-----------------------------
     print("MENU \n")
     print("1 - Para definir a posição do botao confirmar (Necessário apenas a primeira vez)")
@@ -32,7 +31,7 @@ while op != 0:
     with open('agents.json','r',encoding="utf-8") as f:
         data = json.load(f)
 
-    if op == 1:
+    if keyboard.is_pressed("1"):
         print("Put your mouse on confirm button and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
         confirmBtnX,confirmBtnY = pyautogui.position() #get current mouse position
@@ -40,7 +39,7 @@ while op != 0:
                 "x" : confirmBtnX,
                 "y" : confirmBtnY
             }
-    if op == 2:
+    if keyboard.is_pressed("2"):
         print("Put your mouse on character box and press Ctrl for save")
         keyboard.wait('ctrl') #wait the Ctrl key be pressed
         characterPosX, characterPosY = pyautogui.position() #get current mouse position
@@ -60,7 +59,7 @@ while op != 0:
                 f.write(json.dumps(data))
             print(f'Position of character is {characterPosX}x{characterPosY} Recorded')
             
-    elif op == 3:
+    elif keyboard.is_pressed("3"):
         agentName = input("Insert Agent Name: ")
         try:
             characterPosX = data[agentName]['x']
